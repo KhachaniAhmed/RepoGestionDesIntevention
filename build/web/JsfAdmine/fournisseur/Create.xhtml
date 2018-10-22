@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FournisseurCreateDlg" widgetVar="FournisseurCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Nouveaux Fournisseur">
+            <h:form id="FournisseurCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fournisseurController.selected != null}">
+                        <p:outputLabel value="Numero Fournisseur" for="numeroFournisseur" />
+                        <p:inputText id="numeroFournisseur" value="#{fournisseurController.selected.numeroFournisseur}" title="#{bundle.CreateFournisseurTitle_numeroFournisseur}" required="true" requiredMessage="#{bundle.CreateFournisseurRequiredMessage_numeroFournisseur}"/>
+                        <p:outputLabel value="nom Fornisseur" for="nomFournisseur" />
+                        <p:inputText id="nomFournisseur" value="#{fournisseurController.selected.nomFournisseur}" title="#{bundle.CreateFournisseurTitle_nomFournisseur}" required="true" requiredMessage="#{bundle.CreateFournisseurRequiredMessage_nomFournisseur}"/>
+                        <p:outputLabel value="Adresse" for="adresse" />
+                        <p:inputText id="adresse" value="#{fournisseurController.selected.adresse}" title="#{bundle.CreateFournisseurTitle_adresse}" />
+                        <p:outputLabel value="Tel" for="tel" />
+                        <p:inputText id="tel" value="#{fournisseurController.selected.tel}" title="#{bundle.CreateFournisseurTitle_tel}" required="true" requiredMessage="#{bundle.CreateFournisseurRequiredMessage_tel}"/>
+                        <p:outputLabel value="Email" for="email" />
+                        <p:inputText id="email" value="#{fournisseurController.selected.email}" title="#{bundle.CreateFournisseurTitle_email}" required="true" />
+                        <p:outputLabel value="Materiel" for="numeroMateriel" />
+                        <p:selectOneMenu id="numeroMateriel" value="#{fournisseurController.selected.numeroMateriel}" required="true" requiredMessage="#{bundle.EditFournisseurRequiredMessage_numeroMateriel}">
+                            <f:selectItems value="#{materielController.itemsAvailableSelectOne}"
+                                           var="numeroMaterielItem"
+                                           itemValue="#{numeroMaterielItem}" itemLabel="#{numeroMaterielItem.typeMateriel}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fournisseurController.create}" value="Enregistrer" update="display,:FournisseurListForm:datalist,:growl" oncomplete="handleSubmit(args,'FournisseurCreateDialog');"/>
+                    <p:commandButton value="Annuler" onclick="FournisseurCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

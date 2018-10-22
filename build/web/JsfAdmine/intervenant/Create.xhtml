@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IntervenantCreateDlg" widgetVar="IntervenantCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Nouvaeux Intervenant">
+            <h:form id="IntervenantCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{intervenantController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateIntervenantLabel_matriculeintervenant}" for="matriculeintervenant" />
+                        <p:inputText id="matriculeintervenant" value="#{intervenantController.selected.matriculeintervenant}" title="#{bundle.CreateIntervenantTitle_matriculeintervenant}" required="true" requiredMessage="#{bundle.CreateIntervenantRequiredMessage_matriculeintervenant}"/>
+                        <p:outputLabel value="#{bundle.CreateIntervenantLabel_nomintervenant}" for="nomintervenant" />
+                        <p:inputText id="nomintervenant" value="#{intervenantController.selected.nomintervenant}" title="#{bundle.CreateIntervenantTitle_nomintervenant}" required="true" requiredMessage="#{bundle.CreateIntervenantRequiredMessage_nomintervenant}"/>
+                        <p:outputLabel value="#{bundle.CreateIntervenantLabel_login}" for="login" />
+                        <p:inputText id="login" value="#{intervenantController.selected.login}" title="#{bundle.CreateIntervenantTitle_login}" required="true" requiredMessage="#{bundle.CreateIntervenantRequiredMessage_login}"/>
+                        <p:outputLabel value="#{bundle.CreateIntervenantLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{intervenantController.selected.password}" title="#{bundle.CreateIntervenantTitle_password}" required="true" requiredMessage="#{bundle.CreateIntervenantRequiredMessage_password}"/>
+                        <p:outputLabel value="#{bundle.CreateIntervenantLabel_type}" for="type" />
+                        <p:inputText id="type" value="#{intervenantController.selected.type}" title="#{bundle.CreateIntervenantTitle_type}" required="true" requiredMessage="#{bundle.CreateIntervenantRequiredMessage_type}"/>
+                        <p:outputLabel value="#{bundle.CreateIntervenantLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{intervenantController.selected.email}" title="#{bundle.CreateIntervenantTitle_email}" required="true" requiredMessage="#{bundle.CreateIntervenantRequiredMessage_email}"/>
+                        <p:outputLabel value="#{bundle.CreateIntervenantLabel_tel}" for="tel" />
+                        <p:inputText id="tel" value="#{intervenantController.selected.tel}" title="#{bundle.CreateIntervenantTitle_tel}" required="true" requiredMessage="#{bundle.CreateIntervenantRequiredMessage_tel}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{intervenantController.create}" value="Enregistrer" update="display,:IntervenantListForm:datalist,:growl" oncomplete="handleSubmit(args,'IntervenantCreateDialog');"/>
+                    <p:commandButton value="Anuuler" onclick="IntervenantCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

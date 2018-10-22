@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaterielEditDlg" widgetVar="MaterielEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Modifier un Materiel">
+            <h:form id="MaterielEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{materielController.selected != null}">
+                        <p:outputLabel value="NUM MATERIEL" for="numeroMateriel" />
+                        <p:inputText id="numeroMateriel" value="#{materielController.selected.numeroMateriel}" title="#{bundle.EditMaterielTitle_numeroMateriel}" required="true" requiredMessage="#{bundle.EditMaterielRequiredMessage_numeroMateriel}"/>
+                        <p:outputLabel value="NOM MATERIEL" for="typeMateriel" />
+                        <p:inputText id="typeMateriel" value="#{materielController.selected.typeMateriel}" title="#{bundle.EditMaterielTitle_typeMateriel}" required="true" requiredMessage="#{bundle.EditMaterielRequiredMessage_typeMateriel}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{materielController.update}" value="Enregistrer" update="display,:MaterielListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MaterielEditDialog');"/>
+                    <p:commandButton value="Annuler" onclick="MaterielEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

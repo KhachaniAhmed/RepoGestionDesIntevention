@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OperateurEditDlg" widgetVar="OperateurEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Modifier un Operateur">
+            <h:form id="OperateurEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{operateurController.selected != null}">
+                        <p:outputLabel value="MAT OPERATEUR" for="matriculeoperateur" />
+                        <p:inputText id="matriculeoperateur" value="#{operateurController.selected.matriculeoperateur}" title="#{bundle.EditOperateurTitle_matriculeoperateur}" required="true" requiredMessage="#{bundle.EditOperateurRequiredMessage_matriculeoperateur}"/>
+                        <p:outputLabel value="NOM" for="nomOperateur" />
+                        <p:inputText id="nomOperateur" value="#{operateurController.selected.nomOperateur}" title="#{bundle.EditOperateurTitle_nomOperateur}" />
+                        <p:outputLabel value="PRENOM" for="prenommatricule" />
+                        <p:inputText id="prenommatricule" value="#{operateurController.selected.prenommatricule}" title="#{bundle.EditOperateurTitle_prenommatricule}" />
+                        <p:outputLabel value="TELEPHONE" for="tel" />
+                        <p:inputText id="tel" value="#{operateurController.selected.tel}" title="#{bundle.EditOperateurTitle_tel}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{operateurController.update}" value="Enregistrer" update="display,:OperateurListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OperateurEditDialog');"/>
+                    <p:commandButton value="Annuler" onclick="OperateurEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

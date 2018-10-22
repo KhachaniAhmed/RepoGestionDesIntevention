@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IntervenantViewDlg" widgetVar="IntervenantViewDialog" modal="true" resizable="false" appendTo="@(body)" header="Voir Intervenant">
+            <h:form id="IntervenantViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{intervenantController.selected != null}">
+                        <h:outputText value="#{bundle.ViewIntervenantLabel_matriculeintervenant}"/>
+                        <h:outputText value="#{intervenantController.selected.matriculeintervenant}" title="#{bundle.ViewIntervenantTitle_matriculeintervenant}"/>
+                        <h:outputText value="#{bundle.ViewIntervenantLabel_nomintervenant}"/>
+                        <h:outputText value="#{intervenantController.selected.nomintervenant}" title="#{bundle.ViewIntervenantTitle_nomintervenant}"/>
+                        <h:outputText value="#{bundle.ViewIntervenantLabel_login}"/>
+                        <h:outputText value="#{intervenantController.selected.login}" title="#{bundle.ViewIntervenantTitle_login}"/>
+                        <h:outputText value="#{bundle.ViewIntervenantLabel_password}"/>
+                        <h:outputText value="#{intervenantController.selected.password}" title="#{bundle.ViewIntervenantTitle_password}"/>
+                        <h:outputText value="#{bundle.ViewIntervenantLabel_type}"/>
+                        <h:outputText value="#{intervenantController.selected.type}" title="#{bundle.ViewIntervenantTitle_type}"/>
+                        <h:outputText value="#{bundle.ViewIntervenantLabel_email}"/>
+                        <h:outputText value="#{intervenantController.selected.email}" title="#{bundle.ViewIntervenantTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewIntervenantLabel_tel}"/>
+                        <h:outputText value="#{intervenantController.selected.tel}" title="#{bundle.ViewIntervenantTitle_tel}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Fermer" onclick="IntervenantViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

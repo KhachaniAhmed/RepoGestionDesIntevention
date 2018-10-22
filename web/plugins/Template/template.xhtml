@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+      <h:head>
+      <title> Facelets Template </title>
+      <style>
+      .top{
+      height: 160px;
+      width: 100%;
+      margin: 5px;
+      position: relative;
+      margin-right: 10%;     
+    }
+      </style>
+      </h:head>
+      
+      <h:body>
+      <div class="top">
+          <ui:insert name="top">Top</ui:insert>
+      </div>
+      <div class="container">
+          <ui:insert name="container"></ui:insert>
+      </div>
+      </h:body>
+</html>

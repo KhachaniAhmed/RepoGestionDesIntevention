@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>INTERVENANT</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet library="awesome" name="css/font-awesome.css"/>
+           
+       
+       
+        <p:menubar style="width:1271px; position: absolute; top: 0px; left: 0px; background-image: url(fonts/yazalogo.png); background-repeat: no-repeat; background-position-x: 1100px">
+            <p:menuitem value="Déconnexion" outcome="/login" icon="ui-icon-extlink" />
+                        
+                        <p:submenu label="Navigation">
+                            <p:menuitem value="Intervention" outcome="/JSFpagesIntervenant/intervention/List.xhtml" />
+                            <p:menuitem value="Materiel" outcome="/JSFpagesIntervenant/materiel/List.xhtml" />
+                            <p:menuitem value="Operateur" outcome="/JSFpagesIntervenant/operateur/List.xhtml" />
+                            <p:menuitem value="Reclamation" outcome="/JSFpagesIntervenant/reclamation/List.xhtml" />
+                           
+                        </p:submenu>
+                       
+                    </p:menubar>
+        
+    </h:head >
+    <h:body  style="background-image: url(fonts/bgok.png); background-size: 100%; background-repeat: no-repeat; background-position-y: -3%;" >
+          
+        <h:form  >
+        <br />
+        <h:panelGrid columns="8" style="position: absolute; left: 8%; top: 40%" >
+        
+        <br />
+        <p:button outcome="/JSFpagesIntervenant/reclamation/List" value="RECLAMATION" style=" appearance: button; text-align: left;
+        background-image: url(fonts/reclama.png); background-repeat: no-repeat; background-size: 40%; background-position: right;  font-size: 37px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute"/>
+        <br />  
+        
+        <p:button outcome="/JSFpagesIntervenant/intervention/List" value="INTERVENTION" style="appearance: button; text-align: left;
+              background-image: url(fonts/Repa.png); background-repeat: no-repeat; background-position: right; background-size: 40% ;font-size: 30px; border-style: ridge; font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute"/>
+        
+         <br /> 
+        <p:button outcome="/JSFpagesIntervenant/operateur/List" value="OPERATEURS" style=" appearance: button;text-align: left;
+                 background-image: url(fonts/coucou.png); background-repeat: no-repeat; background-position: right; background-size: 40% ;font-size: 30px; font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute"/>
+        <br />
+        
+     
+        
+        <br />
+        <p:button outcome="/JSFpagesIntervenant/materiel/List" value="MATERIELS" style="appearance: button; text-align: left;
+          background-image: url(fonts/interven.png); background-repeat: no-repeat; background-position: right; background-size: 40% ;font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute"/>
+         <br />
+        </h:panelGrid>
+        
+      
+        </h:form>
+         <p:menubar style="position: absolute;bottom: 0px; left: 0px; width:1271px; height:40px;">
+                        <p:menuitem value="help" outcome="/help.xhtml" icon="ui-icon-help"/>
+                         <p:menuitem value="Contactez Nous" outcome="/help" icon="ui-icon-contact  "/>
+                        
+                         
+                        </p:menubar>
+        <p style="position: absolute;bottom: 0px; right: 0px;"><p:clock></p:clock></p>
+    </h:body>
+    
+
+</html>
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<title>Login Application in JSF 2</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/Login.css" />
+       
+</h:head>
+<h:body>
+<ui:decorate template="Template/template.xhtml">
+<ui:define name="top">
+        <h:graphicImage value="/fonts/images_012.png" style="width:1217px; height:200px;" />
+</ui:define>
+<div class="container">
+<ui:define name="container">
+		<h:form id="loginForm">
+			<h:outputLabel value="User Name:" />
+			<h:inputText id="username" value="#{intervenant.login}" required="true"/> <br />
+			<h:outputLabel value="Password: " />
+			<h:inputSecret id="password" value="#{intervenant.password}" required="true"></h:inputSecret><br/>
+			<h:commandButton action="#{intervenant.validateUsernamePassword}"
+			value="Login"></h:commandButton>
+		</h:form>
+</ui:define>
+</div>
+</ui:decorate>
+
+</h:body>
+</html>

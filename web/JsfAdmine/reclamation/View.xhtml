@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReclamationViewDlg" widgetVar="ReclamationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="Voir">
+            <h:form id="ReclamationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reclamationController.selected != null}">
+                        <h:outputText value="NUM RECLAMATION"/>
+                        <h:outputText value="#{reclamationController.selected.numeroReclamation}" title="#{bundle.ViewReclamationTitle_numeroReclamation}"/>
+                        <h:outputText value="DESCRIPTION"/>
+                        <h:outputText value="#{reclamationController.selected.description}" title="#{bundle.ViewReclamationTitle_description}"/>
+                        <h:outputText value="DATE"/>
+                        <h:outputText value="#{reclamationController.selected.date}" title="#{bundle.ViewReclamationTitle_date}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                    
+                        </h:outputText>
+                         <h:outputText value="INTERVENANT"/>
+                         <h:outputText value="#{reclamationController.selected.matriculeIntervenant.nomintervenant}" title="#{bundle.ViewReclamationTitle_matriculeIntervenant}"/>
+                         <h:outputText value="OPERATEUR"/>
+                         <h:outputText value="#{reclamationController.selected.matriculeOperateur.prenommatricule}" title="#{bundle.ViewReclamationTitle_matriculeOperateur}"/>
+                        <h:outputText value="MATERIEL"/>
+                        <h:outputText value="#{reclamationController.selected.numeroMateriel.typeMateriel}" title="#{bundle.ViewReclamationTitle_numeroMateriel}"/>
+                       <h:outputText value="PANNE"/>
+                       <h:outputText value="#{reclamationController.selected.idPanne.panne}" title="#{bundle.ViewReclamationTitle_idPanne}"/>
+                        <h:outputText value="DEPARTEMENT"/>
+                        <h:outputText value="#{reclamationController.selected.idDepartement.departement}" title="#{bundle.ViewReclamationTitle_idDepartement}"/>
+                       
+                        <h:outputText value="ZONE"/>
+                        <h:outputText value="#{reclamationController.selected.idZone.zone}" title="#{bundle.ViewReclamationTitle_idZone}"/>
+                     <h:outputText value="PROJET"/>
+                     <h:outputText value="#{reclamationController.selected.idProjet.projet}" title="#{bundle.ViewReclamationTitle_idProjet}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Fermer" onclick="ReclamationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

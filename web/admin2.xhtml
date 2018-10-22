@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>ADMIN</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet library="awesome" name="css/font-awesome.css"/>
+        
+          <p:menubar style="width: 100%; position: absolute; top: 0px; left: 0px; background-image: url(fonts/yazalogo.png); background-repeat: no-repeat; background-position-x: 90%">
+            <p:menuitem value="Déconnexion" outcome="/login" icon="ui-icon-extlink" />
+                        
+                        <p:submenu label="Navigation">
+                           <p:menuitem value="Departement" outcome="/JsfAdmine/departement/List.xhtml" />
+                            <p:menuitem value="Fournisseur" outcome="/JsfAdmine/fournisseur/List.xhtml" />
+                            <p:menuitem value="Intervenant" outcome="/JsfAdmine/intervenant/List.xhtml" />
+                            <p:menuitem value="Intervention" outcome="/JsfAdmine/intervention/List.xhtml" />
+                            <p:menuitem value="Materiel" outcome="/JsfAdmine/materiel/List.xhtml" />
+                            <p:menuitem value="Operateur" outcome="/JsfAdmine/operateur/List.xhtml" />
+                            <p:menuitem value="Panne" outcome="/JsfAdmine/panne/List.xhtml" />
+                            <p:menuitem value="Projet" outcome="/JsfAdmine/projet/List.xhtml" />
+                            <p:menuitem value="Reclamation" outcome="/JsfAdmine/reclamation/List.xhtml" 
+                                          />
+                            <p:menuitem value="Zone" outcome="/JsfAdmine/zone/List.xhtml" />
+                        </p:submenu>
+                       
+          </p:menubar>
+     
+    </h:head>
+    <h:body  style="background-image: url(fonts/bgok.png);">
+        <h:form >
+               <h3 style="position: absolute; bottom: 24px; right: 6px;"> <p:clock /></h3>
+            
+           
+        <br />
+        <h:panelGrid columns="10" style="position: absolute; margin-top: 10%">
+        <p:button outcome="/JsfAdmine/reclamation/List" value="RECLAMATION" style=" appearance: button; text-align: left;
+        background-image: url(fonts/reclama.png); background-repeat: no-repeat; background-size: 40%; background-position: right;  font-size: 37px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute"/>
+        
+        <br />
+        
+        <p:button outcome="/JsfAdmine/fournisseur/List" value="FOURNISSEURS"  style=" appearance: button;
+                  font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive; float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute;
+                   background-image: url(fonts/fourniss.png); background-repeat: no-repeat; background-size: 40%; background-position: right; text-align: left"/>
+        <br />
+        <p:button outcome="/JsfAdmine/intervenant/List" value="UTILISATEURS" style="appearance: button;
+                  font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute;
+                                     background-image: url(fonts/user.png); background-repeat: no-repeat; background-size: 40%; background-position: right; text-align: left"/>
+        <br />
+         <p:button outcome="/JsfAdmine/intervention/List" value="INTERVENTION" style="appearance: button; text-align: left;
+              background-image: url(fonts/Repa.png); background-repeat: no-repeat; background-position: right; background-size: 40% ;font-size: 30px; border-style: ridge; font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute"/>
+          <br />
+        <p:button outcome="/JsfAdmine/materiel/List" value="MATERIELS" style="appearance: button; text-align: left;
+          background-image: url(fonts/interven.png); background-repeat: no-repeat; background-position: right; background-size: 40% ;font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute"/>
+          <br />
+           <p:button outcome="/JsfAdmine/operateur/List" value="OPERATEURS" style=" appearance: button;text-align: left;
+                 background-image: url(fonts/coucou.png); background-repeat: no-repeat; background-position: right; background-size: 40% ;font-size: 30px; font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute"/>
+        <br />
+        <p:button outcome="/JsfAdmine/panne/List" value="PANNES" style=" appearance: button;
+                  font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute;
+                   background-image: url(fonts/panne.png); background-repeat: no-repeat; background-size: 40%; background-position: right; text-align: left"/>
+        <br />
+        <p:button outcome="/JsfAdmine/departement/List" value="DEPARTEMENT" style=" appearance: button;font-size: 45px; font-style: italic; font-weight: 900; font-family: cursive; float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute;
+                   background-image: url(fonts/depart.png); background-repeat: no-repeat; background-size: 40%; background-position: right; text-align: left"/>
+        <br />
+        <p:button outcome="/JsfAdmine/projet/List" value="PROJETS" style=" appearance: button;
+                  font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height: 140px; text-justify:distribute;
+                  background-image: url(fonts/projet.png); background-repeat: no-repeat; background-size: 40%; background-position: right; text-align: left"/>
+        <br />
+        <br />
+        <p:button outcome="/JsfAdmine/zone/List" value="ZONES" style=" appearance: button;
+                  font-size: 30px; font-style: italic; font-weight: 900; font-family: cursive;float: left; border-radius: 10px; width: 260px; height:140px; text-justify:distribute;
+                   background-image: url(fonts/zone.png); background-repeat: no-repeat; background-size: 40%; background-position: right; text-align: left"/>
+         
+        </h:panelGrid>
+       
+        </h:form>
+       <p:menubar style="position: absolute;bottom: 0px; left: 0px; width: 100%;  ">
+                        <p:menuitem value="help" outcome="/help" icon="ui-icon-help"/>
+                         <p:menuitem value="Contactez Nous" outcome="/help" icon="ui-icon-contact  "/>
+                        
+                       
+                        </p:menubar>
+    </h:body>
+   
+
+
+
+</html>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OperateurViewDlg" widgetVar="OperateurViewDialog" modal="true" resizable="false" appendTo="@(body)" header="Voir Operateur">
+            <h:form id="OperateurViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{operateurController.selected != null}">
+                        <h:outputText value="MAT OPERATEUR"/>
+                        <h:outputText value="#{operateurController.selected.matriculeoperateur}" title="#{bundle.ViewOperateurTitle_matriculeoperateur}"/>
+                        <h:outputText value="NOM"/>
+                        <h:outputText value="#{operateurController.selected.nomOperateur}" title="#{bundle.ViewOperateurTitle_nomOperateur}"/>
+                        <h:outputText value="PRENOM"/>
+                        <h:outputText value="#{operateurController.selected.prenommatricule}" title="#{bundle.ViewOperateurTitle_prenommatricule}"/>
+                        <h:outputText value="TELEPHONE"/>
+                        <h:outputText value="#{operateurController.selected.tel}" title="#{bundle.ViewOperateurTitle_tel}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Fermer" onclick="OperateurViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

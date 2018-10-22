@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panelGrid columns="1" style="position: absolute;left: 30px ; width: 1000px;">
+            <p:chart type="line" model="#{chartsView.lineModel1}" style="height:300px;"/>
+ 
+          <p:chart type="line" model="#{chartsView.lineModel2}" style="height:300px;"/>
+          
+                <p:chart type="pie" model="#{intervenant.model}"></p:chart>
+            </p:panelGrid>
+          
+            
+        </h:form>
+        <h:form>
+             
+            <p:panelGrid columns="1" style="position: absolute;left:   15px">
+                
+                <p:chart type="bar" model="#{chartViewbar.barModel}" style="height:300px"/>
+ 
+                <p:chart type="bar" model="#{chartViewbar.horizontalBarModel}" style="height:300px"/>
+
+            </p:panelGrid>
+            
+            
+            
+            
+        </h:form>
+    </h:body>
+</html>
+

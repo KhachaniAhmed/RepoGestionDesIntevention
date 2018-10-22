@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InterventionCreateDlg" widgetVar="InterventionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Nouvelle Intervention">
+            <h:form id="InterventionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{interventionController.selected != null}">
+                        <p:outputLabel value="NUM INTERVENTION" for="numeroIntervention" />
+                        <p:inputText id="numeroIntervention" value="#{interventionController.selected.numeroIntervention}" title="#{bundle.CreateInterventionTitle_numeroIntervention}" required="true" requiredMessage="#{bundle.CreateInterventionRequiredMessage_numeroIntervention}"/>
+                        <p:outputLabel value="ETAT" for="etat" />
+                        <p:inputText id="etat" value="#{interventionController.selected.etat}" title="#{bundle.CreateInterventionTitle_etat}" />
+                        <p:outputLabel value="NUM RECLAMATION" for="numeroReclamation" />
+                        <p:selectOneMenu id="numeroReclamation" value="#{interventionController.selected.numeroReclamation}" required="true" requiredMessage="#{bundle.EditInterventionRequiredMessage_numeroReclamation}">
+                            <f:selectItems value="#{reclamationController.itemsAvailableSelectOne}"
+                                           var="numeroReclamationItem"
+                                           itemValue="#{numeroReclamationItem}"
+                                           itemLabel="#{numeroReclamationItem.numeroReclamation}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="INTERVENANT" for="matriculeIntervenant" />
+                        <p:selectOneMenu id="matriculeIntervenant" value="#{interventionController.selected.matriculeIntervenant}" required="true" requiredMessage="#{bundle.EditInterventionRequiredMessage_matriculeIntervenant}">
+                            <f:selectItems value="#{intervenantController.itemsAvailableSelectOne}"
+                                           var="matriculeIntervenantItem"
+                                           itemValue="#{matriculeIntervenantItem}"
+                                           itemLabel="#{matriculeIntervenantItem.nomintervenant}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton action="#{sendEmailAllUserIntervention.send( intervenant.Nomintervenant(intervenant.login))}" actionListener="#{interventionController.create}" value="Enregistrer" update="display,:InterventionListForm:datalist,:growl" oncomplete="handleSubmit(args,'InterventionCreateDialog');"/>
+                    <p:commandButton value="Annuler" onclick="InterventionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

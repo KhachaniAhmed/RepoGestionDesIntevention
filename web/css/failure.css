@@ -1,0 +1,25 @@
+a{text-decoration: none;}
+a:hover{color:yellow;}
+.failure{
+  font-size: 25px;
+  text-align: center;
+  padding: 5px;
+  width: 50%;
+  border-radius: 4px;
+  margin: 0px auto; 
+  margin-top: 15px;
+  border: 1px solid blue;
+  color: red;}
+.footer, .p:after{
+  font-size: 25px;
+  padding: 5px;
+  width: 25%;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 4px;
+  border: 1px solid blue;
+  color: green;
+}
+.footer:hover{
+  background: green;
+  border-color: yellow;}

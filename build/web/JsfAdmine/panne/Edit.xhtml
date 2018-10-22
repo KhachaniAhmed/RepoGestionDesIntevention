@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PanneEditDlg" widgetVar="PanneEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Modifier Intervenant">
+            <h:form id="PanneEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{panneController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPanneLabel_idPanne}" for="idPanne" />
+                        <p:inputText id="idPanne" value="#{panneController.selected.idPanne}" title="#{bundle.EditPanneTitle_idPanne}" required="true" requiredMessage="#{bundle.EditPanneRequiredMessage_idPanne}"/>
+                        <p:outputLabel value="#{bundle.EditPanneLabel_panne}" for="panne" />
+                        <p:inputText id="panne" value="#{panneController.selected.panne}" title="#{bundle.EditPanneTitle_panne}" required="true" requiredMessage="#{bundle.EditPanneRequiredMessage_panne}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{panneController.update}" value="Enregistrer" update="display,:PanneListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PanneEditDialog');"/>
+                    <p:commandButton value="Annuler" onclick="PanneEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

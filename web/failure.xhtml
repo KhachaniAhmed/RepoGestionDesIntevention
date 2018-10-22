@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Sorry</title>
+ <link rel="stylesheet" href="css/failure.css" />
+</h:head>
+<h:body>
+<ui:decorate template="/Template/template.xhtml">
+<ui:define name="top">
+        <h:graphicImage value="/fonts/images_012.png" style="width:1217px; height:200px;" />
+</ui:define>
+
+<ui:define name="container">
+
+<p class="failure" style="position: absolute; top:190px; left: 290px">Incorrect Password or Login<br /></p>
+<div class="footer" style="position: absolute; top:240px; left:440px;"><a href="login.xhtml">Click here to Try Again.</a></div> 
+</ui:define>
+
+</ui:decorate>
+</h:body>
+</html>

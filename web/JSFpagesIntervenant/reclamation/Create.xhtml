@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReclamationCreateDlg" widgetVar="ReclamationCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Crèe une reclamation">
+            <h:form id="ReclamationCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reclamationController.selected != null}">
+                        <p:outputLabel value="NUM RECLAMATION" for="numeroReclamation" />
+                        <p:inputText id="numeroReclamation" value="#{reclamationController.selected.numeroReclamation}" title="#{bundle.CreateReclamationTitle_numeroReclamation}" required="true" requiredMessage="#{bundle.CreateReclamationRequiredMessage_numeroReclamation}"/>
+                        <p:outputLabel value="DESCRIPTION" for="description" />
+                        <p:inputText id="description" value="#{reclamationController.selected.description}" title="#{bundle.CreateReclamationTitle_description}" required="true" requiredMessage="#{bundle.CreateReclamationRequiredMessage_description}"/>
+                        <p:outputLabel value="DATE" for="date" />
+                        <p:calendar id="date" pattern="MM/dd/yyyy" value="#{reclamationController.selected.date}" title="#{bundle.EditReclamationTitle_date}" required="true" requiredMessage="#{bundle.EditReclamationRequiredMessage_date}" showOn="button"/>
+                       <p:outputLabel value="INTERVENANT" for="matriculeIntervenant" />
+                        <p:selectOneMenu id="matriculeIntervenant" value="#{reclamationController.selected.matriculeIntervenant}" required="true" requiredMessage="#{bundle.EditReclamationRequiredMessage_matriculeIntervenant}">
+                            <f:selectItems value="#{intervenantController.itemsAvailableSelectOne}"
+                                           var="matriculeIntervenantItem"
+                                           itemValue="#{matriculeIntervenantItem}"
+                                           itemLabel="#{matriculeIntervenantItem.nomintervenant}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="OPERATEUR" for="matriculeOperateur" />
+                        <p:selectOneMenu id="matriculeOperateur" value="#{reclamationController.selected.matriculeOperateur}" required="true" requiredMessage="#{bundle.EditReclamationRequiredMessage_matriculeOperateur}">
+                            <f:selectItems value="#{operateurController.itemsAvailableSelectOne}"
+                                           var="matriculeOperateurItem"
+                                           itemValue="#{matriculeOperateurItem}"
+                                           itemLabel="#{matriculeOperateurItem.prenommatricule}"/>
+                        </p:selectOneMenu>
+                       
+                        <p:outputLabel value="MATERIEL" for="numeroMateriel" />
+                        <p:selectOneMenu id="numeroMateriel" value="#{reclamationController.selected.numeroMateriel}" required="true" requiredMessage="#{bundle.EditReclamationRequiredMessage_numeroMateriel}">
+                            <f:selectItems value="#{materielController.itemsAvailableSelectOne}"
+                                           var="numeroMaterielItem"
+                                           itemValue="#{numeroMaterielItem}"
+                                           itemLabel="#{numeroMaterielItem.typeMateriel}"/>
+                        </p:selectOneMenu>
+                        
+                         <p:outputLabel value="PANNE" for="idPanne" />
+                        <p:selectOneMenu id="idPanne" value="#{reclamationController.selected.idPanne}" required="true" requiredMessage="#{bundle.EditReclamationRequiredMessage_idPanne}">
+                            <f:selectItems value="#{panneController.itemsAvailableSelectOne}"
+                                           var="idPanneItem"
+                                           itemValue="#{idPanneItem}"
+                                           itemLabel="#{idPanneItem.panne}"/>
+                        </p:selectOneMenu>
+                       
+                       <p:outputLabel value="DEPARTEMENT" for="idDepartement" />
+                        <p:selectOneMenu id="idDepartement" value="#{reclamationController.selected.idDepartement}" >
+                            <f:selectItems value="#{departementController.itemsAvailableSelectOne}"
+                                           var="idDepartementItem"
+                                           itemValue="#{idDepartementItem}"
+                                           itemLabel="#{idDepartementItem.departement}"/>
+                        </p:selectOneMenu>
+                       
+                        <p:outputLabel value="ZONE" for="idZone" />
+               
+                        <p:selectOneMenu id="idZone" value="#{reclamationController.selected.idZone}" >
+                            <f:selectItems value="#{zoneController.itemsAvailableSelectOne}"
+                                           var="idZoneItem"
+                                           itemValue="#{idZoneItem}"
+                                           itemLabel="#{idZoneItem.zone}"/>
+                        </p:selectOneMenu>
+                        
+                        <p:outputLabel value="PROJET" for="idProjet" />
+                        <p:selectOneMenu id="idProjet" value="#{reclamationController.selected.idProjet}" >
+                            <f:selectItems value="#{projetController.itemsAvailableSelectOne}"
+                                           var="idProjetItem"
+                                           itemValue="#{idProjetItem}"
+                                           itemLabel="#{idProjetItem.projet}"/>
+                        </p:selectOneMenu>
+                       
+                       
+                       
+                       
+                       
+                    </p:panelGrid>
+                    <p:commandButton action="#{sendAllIntervenant.send(( intervenant.Nomintervenant(intervenant.login)))}" actionListener="#{reclamationController.create}" value="Enregistrer" update="display,:ReclamationListForm:datalist,:growl" oncomplete="handleSubmit(args,'ReclamationCreateDialog');"/>
+                    <p:commandButton value="Annuler" onclick="ReclamationCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
